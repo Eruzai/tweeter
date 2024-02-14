@@ -1,0 +1,27 @@
+/* Styling for new tweet submission form */
+main form input {
+  font-weight: 600;
+  width: 100%;
+  background-color: #f4f1ec;
+  padding-bottom: 0.5em;
+  padding-top: 0.5em;
+  border: none;
+  border-bottom: 5px solid #535149;
+  box-sizing: border-box;
+}
+
+main form ::placeholder {
+  color: #535149;
+}
+
+main form div {
+  font-family: "Bungee", sans-serif;
+  margin-top: 17px;
+  display: flex;
+  justify-content: space-between;
+}
+
+main form button {
+  background-color: #4056A1;
+  color: white;
+}
