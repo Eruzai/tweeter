@@ -1,7 +1,6 @@
 /* Styling for the header */
 header {
-  position: absolute;
-  top: 120px;
+  margin-top: 120px;
   height: 400px;
   width: 100%;
   background-color: #FF9800;
