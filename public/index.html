@@ -45,34 +45,17 @@
 
     <!-- Page-specific (main) content here -->
     <main class="container">
-      <p>This is a wonderful paragraph about nothing in particular</p>
-      <h1>Hello World!</h1>
-      <p>ghaoihjeihjl;akgh ldhfoihglakshdj lkdfh aoif
-        ghaoisdhgfklashjgliasj
-        jgodihaslkdngfioashdhjoiajeohgalg
-        jfoasdihg
-      </p>
-      <p>This is a wonderful paragraph about nothing in particular</p>
-      <h1>Hello World!</h1>
-      <p>ghaoihjeihjl;akgh ldhfoihglakshdj lkdfh aoif
-        ghaoisdhgfklashjgliasj
-        jgodihaslkdngfioashdhjoiajeohgalg
-        jfoasdihg
-      </p>
-      <p>This is a wonderful paragraph about nothing in particular</p>
-      <h1>Hello World!</h1>
-      <p>ghaoihjeihjl;akgh ldhfoihglakshdj lkdfh aoif
-        ghaoisdhgfklashjgliasj
-        jgodihaslkdngfioashdhjoiajeohgalg
-        jfoasdihg
-      </p>
-      <p>This is a wonderful paragraph about nothing in particular</p>
-      <h1>Hello World!</h1>
-      <p>ghaoihjeihjl;akgh ldhfoihglakshdj lkdfh aoif
-        ghaoisdhgfklashjgliasj
-        jgodihaslkdngfioashdhjoiajeohgalg
-        jfoasdihg
-      </p>
+      <section class="new-tweet">
+        <h2>Compose Tweet</h2>
+        <form action="/tweets" method="POST">
+          <label for="tweet-text">What are you humming about?</label>
+          <textarea name="text" id="tweet-text"></textarea>
+          <div>
+            <button type="submit">Tweet</button>
+            <output name="counter" class="counter" for="tweet-text">140</output>
+          </div>
+        </form>
+      </section>
     </main>
   </body>
 </html>
