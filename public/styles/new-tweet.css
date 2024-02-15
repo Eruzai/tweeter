@@ -23,3 +23,7 @@ main button {
   background-color: #4056A1;
   color: white;
 }
+
+.char-overflow {
+  color: red;
+}
