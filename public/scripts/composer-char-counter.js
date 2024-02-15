@@ -2,7 +2,7 @@
 $(document).ready(function() {
   $("#tweet-text").on('input', function() {
 
-    const text = $(this).val()
+    const text = $(this).val();
 
     const remainingChars = 140 - text.length;
 
@@ -11,5 +11,5 @@ $(document).ready(function() {
     counter.text(remainingChars);
 
     remainingChars < 0 ? counter.addClass('char-overflow') : counter.removeClass('char-overflow');
-  })
+  });
 });
