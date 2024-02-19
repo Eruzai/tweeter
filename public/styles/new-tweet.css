@@ -8,6 +8,10 @@ textarea {
   border-bottom: 5px solid #535149;
 }
 
+.new-tweet {
+  margin-bottom: 50px;
+}
+
 ::placeholder {
   color: #535149;
 }
