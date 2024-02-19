@@ -1,3 +1,4 @@
+/* Style sheet for tweet display area */
 article.tweet {
   border: 5px solid;
   padding: 20px;
@@ -44,7 +45,7 @@ article.tweet .posted-time {
 }
 
 .shadow {
-  box-shadow: 7px 7px #4056A1;
+  box-shadow: 7px 7px #96a3d2;
 }
 
 .hover-color {
