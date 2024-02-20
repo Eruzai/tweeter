@@ -64,12 +64,15 @@ $(document).ready(function() {
     for (tweet of tweetObjectsArray) {
       const $tweetToPost = createTweetElement(tweet);
       $('.tweets-container').append($tweetToPost);
-    }
+    };
   };
 
   renderTweets(data);
 
   $('#tweet-form').on('submit', function(event) {
     event.preventDefault();
+    const data = $(this).serialize();
+    $.post('/tweets', data);
+    console.log(data);
   });
 });
