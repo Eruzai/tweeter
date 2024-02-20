@@ -1,32 +1,8 @@
-// Fake data taken from initial-tweets.json
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-]
-
 $(document).ready(function() {
-  // Function creates JQuery tweet HTML from tweetObject data
+
+  // Function creates JQuery tweet HTML from tweet object data
   const createTweetElement = function (tweetObject) {
+
     // Simplified tweetObject data
     const profilePic = tweetObject.user.avatars;
     const userName = tweetObject.user.name;
@@ -34,7 +10,7 @@ $(document).ready(function() {
     const tweetContent = tweetObject.content.text;
     const timeCreated = tweetObject.created_at;
     
-    // Creates HTML article with data from tweetObject
+    // Creates HTML article with data from tweet object
     const $tweet = $(`<article class="tweet">
   <header>
     <div>
@@ -67,12 +43,18 @@ $(document).ready(function() {
     };
   };
 
-  renderTweets(data);
-
+  // Sends new tweet data to server
   $('#tweet-form').on('submit', function(event) {
     event.preventDefault();
     const data = $(this).serialize();
     $.post('/tweets', data);
-    console.log(data);
   });
+  
+  // Function gets tweet data from /tweets and renders it on page
+  const loadTweets = function() {
+    $.get('/tweets')
+    .then(function(data) {
+      renderTweets(data)
+    });
+  }(); // Imediate execution
 });
