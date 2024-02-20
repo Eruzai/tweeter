@@ -46,8 +46,18 @@ $(document).ready(function() {
   // Sends new tweet data to server
   $('#tweet-form').on('submit', function(event) {
     event.preventDefault();
-    const data = $(this).serialize();
-    $.post('/tweets', data)
+
+    const text = $(this).find('#tweet-text').val();
+    const charsUsed = text.length;
+
+    if (text === '' || text === null) { //checks if tweet has content
+      alert("You must enter a message to tweet!");
+    } else if (charsUsed > 140) { //checks if character limit reached
+      alert("You have gone over the 140 character limit!");
+    } else { //makes tweet
+      const data = $(this).serialize();
+      $.post('/tweets', data)
+    }
   });
   
   // Function gets tweet data from /tweets and renders it on page
