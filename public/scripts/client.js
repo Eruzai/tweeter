@@ -24,15 +24,17 @@ const data = [
   }
 ]
 
-// Function creates and returns HTML article tag containing information from a tweet object
 $(document).ready(function() {
+  // Function creates JQuery tweet HTML from tweetObject data
   const createTweetElement = function (tweetObject) {
+    // Simplified tweetObject data
     const profilePic = tweetObject.user.avatars;
     const userName = tweetObject.user.name;
     const userHandle = tweetObject.user.handle;
     const tweetContent = tweetObject.content.text;
     const timeCreated = tweetObject.created_at;
-
+    
+    // Creates HTML article with data from tweetObject
     const $tweet = $(`<article class="tweet">
   <header>
     <div>
@@ -66,4 +68,8 @@ $(document).ready(function() {
   };
 
   renderTweets(data);
+
+  $('#tweet-form').on('submit', function(event) {
+    event.preventDefault();
+  });
 });
