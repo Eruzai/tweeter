@@ -8,7 +8,7 @@ $(document).ready(function() {
     const userName = tweetObject.user.name;
     const userHandle = tweetObject.user.handle;
     const tweetContent = tweetObject.content.text;
-    const timeCreated = tweetObject.created_at;
+    const timeCreated = timeago.format(tweetObject.created_at);
     
     // Creates HTML article with data from tweet object
     const $tweet = $(`<article class="tweet">
@@ -47,7 +47,7 @@ $(document).ready(function() {
   $('#tweet-form').on('submit', function(event) {
     event.preventDefault();
     const data = $(this).serialize();
-    $.post('/tweets', data);
+    $.post('/tweets', data)
   });
   
   // Function gets tweet data from /tweets and renders it on page
@@ -56,5 +56,5 @@ $(document).ready(function() {
     .then(function(data) {
       renderTweets(data)
     });
-  }(); // Imediate execution
+  }(); // Imediate execution to test
 });
