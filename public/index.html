@@ -54,6 +54,12 @@
       <!-- Form to post a tweet -->
       <section class="new-tweet">
         <h2>Compose Tweet</h2>
+        <div class="error empty-message">
+          <p>🚫 Can't post an empty message!</p>
+        </div>
+        <div class="error char-limit-reached">
+          <p>🚫 Message must be under the 140 character limit!</p>
+        </div>
         <form id="tweet-form" action="/tweets" method="POST">
           <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
           <div>
