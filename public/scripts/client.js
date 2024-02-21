@@ -63,11 +63,14 @@ $(document).ready(function() {
       alert("You must enter a message to tweet!");
     } else if (charsUsed > 140) { //checks if character limit reached
       alert("You have gone over the 140 character limit!");
-    } else { //makes tweet
+    } else {
       const data = $(this).serialize();
-      $.post('/tweets', data)
-      .then(loadTweets());
-    }
+      $(this).find('#tweet-text').val(''); //clears the form
+      $.post('/tweets', data) //makes tweet
+      .then(function() {
+        loadTweets();
+      });
+    };
   });
 
   loadTweets();
