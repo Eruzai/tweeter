@@ -28,6 +28,16 @@ main button {
   color: white;
 }
 
+.error {
+  display: none;
+  color: red;
+}
+
+.error p {
+  margin: 0px;
+  padding-bottom: 1em;
+}
+
 .char-overflow {
   color: red;
 }
