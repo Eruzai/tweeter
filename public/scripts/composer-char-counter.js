@@ -1,6 +1,6 @@
 // Character counter script for composing tweets
 $(document).ready(function() {
-  $("#tweet-text").on('input', function() {
+  $("#tweet-text").on('input change', function() {
 
     const text = $(this).val();
 
