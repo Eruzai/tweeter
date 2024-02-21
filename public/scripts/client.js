@@ -37,10 +37,19 @@ $(document).ready(function() {
 
   // Function loops through an array containing tweet objects and posts each of them to the page
   const renderTweets = function (tweetObjectsArray) {
+    $('.tweets-container').empty();
     for (tweet of tweetObjectsArray) {
       const $tweetToPost = createTweetElement(tweet);
-      $('.tweets-container').append($tweetToPost);
+      $('.tweets-container').prepend($tweetToPost);
     };
+  };
+
+  // Function gets tweet data from /tweets and renders it on page
+  const loadTweets = function() {
+    $.get('/tweets')
+    .then(function(data) {
+      renderTweets(data);
+    });
   };
 
   // Sends new tweet data to server
@@ -57,14 +66,9 @@ $(document).ready(function() {
     } else { //makes tweet
       const data = $(this).serialize();
       $.post('/tweets', data)
+      .then(loadTweets());
     }
   });
-  
-  // Function gets tweet data from /tweets and renders it on page
-  const loadTweets = function() {
-    $.get('/tweets')
-    .then(function(data) {
-      renderTweets(data)
-    });
-  }(); // Imediate execution to test
+
+  loadTweets();
 });
