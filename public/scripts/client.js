@@ -21,9 +21,9 @@ $(document).ready(function() {
   <header>
     <div>
       <img src="${profilePic}" alt="photo">
-      <p>${userName}</p>
+      <p class="username">${userName}</p>
     </div>
-    <p>${userHandle}</p>
+    <p class="user-handle">${userHandle}</p>
   </header>
   <div class="text">
     <p>${escape(tweetContent)}</p>
