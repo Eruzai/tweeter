@@ -8,6 +8,14 @@ textarea {
   border-bottom: 5px solid #535149;
 }
 
+.user-handle {
+  color: #96a3d2;
+}
+
+.username {
+  margin: 1em;
+}
+
 .new-tweet {
   margin-bottom: 50px;
 }
