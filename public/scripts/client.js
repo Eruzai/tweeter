@@ -1,4 +1,10 @@
 $(document).ready(function() {
+  // Function escapes text to avoid script injection etc.
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
 
   // Function creates JQuery tweet HTML from tweet object data
   const createTweetElement = function (tweetObject) {
@@ -20,7 +26,7 @@ $(document).ready(function() {
     <p>${userHandle}</p>
   </header>
   <div class="text">
-    <p>${tweetContent}</p>
+    <p>${escape(tweetContent)}</p>
   </div>
   <footer>
     <p class="posted-time">${timeCreated}</p>
@@ -53,20 +59,26 @@ $(document).ready(function() {
   };
 
   // Sends new tweet data to server
-  $('#tweet-form').on('submit', function(event) {
+  $('.new-tweet').on('submit', function(event) {
     event.preventDefault();
 
-    const text = $(this).find('#tweet-text').val();
-    const charsUsed = text.length;
+    const $textObject = $(this).find('#tweet-text');
+    const plainText = $textObject.val();
+    const charsUsed = plainText.length;
+    const serialText = $textObject.serialize();
+    const $emptyMessage = $(this).find('.empty-message');
+    const $charLimitReached = $(this).find('.char-limit-reached')
 
-    if (text === '' || text === null) { //checks if tweet has content
-      alert("You must enter a message to tweet!");
+    $emptyMessage.slideUp('slow'); //hides errors if any exist
+    $charLimitReached.slideUp('slow');
+
+    if (plainText === '' || plainText === null) { //checks if tweet has content
+      $emptyMessage.slideDown('slow');
     } else if (charsUsed > 140) { //checks if character limit reached
-      alert("You have gone over the 140 character limit!");
+      $charLimitReached.slideDown('slow');
     } else {
-      const data = $(this).serialize();
-      $(this).find('#tweet-text').val(''); //clears the form
-      $.post('/tweets', data) //makes tweet
+      $textObject.val(''); //clears the form
+      $.post('/tweets', serialText) //makes tweet
       .then(function() {
         loadTweets();
       });
