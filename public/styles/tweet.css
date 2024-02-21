@@ -53,6 +53,6 @@ article.tweet:hover {
   box-shadow: 7px 7px #96a3d2;
 }
 
-.fa-solid:hover {
+article .fa-solid:hover {
   color: tan;
 }
