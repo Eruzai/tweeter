@@ -77,7 +77,7 @@ $(document).ready(function() {
     } else if (charsUsed > 140) { //checks if character limit reached
       $charLimitReached.slideDown('slow');
     } else {
-      $textObject.val(''); //clears the form
+      $textObject.val('').trigger('change'); //clears the form and triggers a change event to reset character counter
       $.post('/tweets', serialText) //makes tweet
       .then(function() {
         loadTweets();
