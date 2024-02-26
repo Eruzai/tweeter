@@ -13,4 +13,16 @@ header.user {
 
 header h2 {
   margin: 0px;
+  font-weight: 300;
+  color: white;
+}
+
+@media only screen and (min-width: 768px) {
+  header.user {
+    margin: 0px;
+    width: 35%;
+    position: fixed;
+    top: 225px;
+    left: 50px;
+  }
 }
