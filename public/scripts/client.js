@@ -1,13 +1,13 @@
 $(document).ready(function() {
   // Function escapes text to avoid script injection etc.
-  const escape = function (str) {
+  const escape = function(str) {
     let div = document.createElement("div");
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
   };
 
   // Function creates JQuery tweet HTML from tweet object data
-  const createTweetElement = function (tweetObject) {
+  const createTweetElement = function(tweetObject) {
 
     // Simplified tweetObject data
     const profilePic = tweetObject.user.avatars;
@@ -42,20 +42,20 @@ $(document).ready(function() {
   };
 
   // Function loops through an array containing tweet objects and posts each of them to the page
-  const renderTweets = function (tweetObjectsArray) {
+  const renderTweets = function(tweetObjectsArray) {
     $('.tweets-container').empty();
-    for (tweet of tweetObjectsArray) {
+    for (const tweet of tweetObjectsArray) {
       const $tweetToPost = createTweetElement(tweet);
       $('.tweets-container').prepend($tweetToPost);
-    };
+    }
   };
 
   // Function gets tweet data from /tweets and renders it on page
   const loadTweets = function() {
     $.get('/tweets')
-    .then(function(data) {
-      renderTweets(data);
-    });
+      .then(function(data) {
+        renderTweets(data);
+      });
   };
 
   // Sends new tweet data to server
@@ -67,7 +67,7 @@ $(document).ready(function() {
     const charsUsed = plainText.length;
     const serialText = $textObject.serialize();
     const $emptyMessage = $(this).find('.empty-message');
-    const $charLimitReached = $(this).find('.char-limit-reached')
+    const $charLimitReached = $(this).find('.char-limit-reached');
 
     $emptyMessage.slideUp('slow'); //hides errors if any exist
     $charLimitReached.slideUp('slow');
@@ -79,10 +79,10 @@ $(document).ready(function() {
     } else {
       $textObject.val('').trigger('change'); //clears the form and triggers a change event to reset character counter
       $.post('/tweets', serialText) //makes tweet
-      .then(function() {
-        loadTweets();
-      });
-    };
+        .then(function() {
+          loadTweets();
+        });
+    }
   });
 
   loadTweets();
