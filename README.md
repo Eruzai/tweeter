@@ -9,9 +9,10 @@ On Mobile or Tablet:
 ![Screenshot](/docs/Tweeter-Mobile_or_Tablet.png)
 
 Example tweet input:
-![Screenshot](/docs/Tweet_Example.png)
-![Screenshot](/docs/Tweet_Empty_Message.png)
-![Screenshot](/docs/Tweet_Over_Limit.png)
+
+!["Normal input"](/docs/Tweet_Example.png)
+!["No input"](/docs/Tweet_Empty_Message.png)
+!["Over limit"](/docs/Tweet_Over_Limit.png)
 
 ## Getting Started
 
