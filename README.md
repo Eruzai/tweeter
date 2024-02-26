@@ -2,8 +2,13 @@
 
 Tweeter is a simple, single-page Twitter clone built using HTML, CSS, JS, and jQuery in order to become familiar with front-end development and technologies. It uses a database of users and profile images to simulate random users for each tweet submitted to the server.
 
+On Desktop:
 ![Screenshot](/docs/Tweeter-Desktop.png)
+
+On Mobile or Tablet:
 ![Screenshot](/docs/Tweeter-Mobile_or_Tablet.png)
+
+Example tweet input:
 ![Screenshot](/docs/Tweet_Example.png)
 ![Screenshot](/docs/Tweet_Empty_Message.png)
 ![Screenshot](/docs/Tweet_Over_Limit.png)
